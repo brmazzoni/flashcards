@@ -1,0 +1,34 @@
+perdu;lost;pp.;1
+perdu;lost;pp.;1
+perdre;to loose;v.;1
+étranger;stranger;n.m.;1
+quotidien;daily;adj.;1
+hebdomadaire;weekly;adj.;1
+mensuel;monthly;adj.;1
+prêter;to lend;v.;1
+emission;broadcast/tv show;n.;1
+lycée;high school;n.m.;1
+évitement;avoidance;tbd;1
+sueur;sweat;n.f.;1
+peur;fear;n.f.;1
+pourrir;to rot;v.;1
+séduire;to seduce;v.;1
+charmer;to charm;v.;1
+attirer;to attract;v.;1
+horreur;horror;n.f.;1
+cata;short for catastrophe;n.f.;1
+transpirer;to sweat;n.f.;2
+trembler;to shake;v.;1
+tremblement de terre;earthquake;n.m.;1
+moitié;half;n.f.;1
+dépense;expense;n.f.;1
+dehors;outside;tbd;1
+araignée;spider;n.f.;2
+malsain;unhealthy;adj.;1
+casser;to break;v.;1
+trahir;to betray;v.;1
+convaincre;to convince;v.;1
+pousser;to push;v.;1
+arnaquer;to hustle/to con;v.;1
+consommation;consumption;n.f.;1
+intérêt;interest;n.m.;1
