@@ -1,5 +1,4 @@
 perdu;lost;pp.;1
-perdu;lost;pp.;1
 perdre;to loose;v.;1
 étranger;stranger;n.m.;1
 quotidien;daily;adj.;1
