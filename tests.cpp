@@ -113,6 +113,36 @@ void test_read_words()
   }
   {
     // Description
+    std::string test_description = "TC_015: Test read words function correctly reads a sample file with extra new line";
+    // Init inputs
+    std::ofstream testfile;
+    std::ifstream file;
+
+    testfile.open("testfile");
+    testfile << "tester1;to test1;v.;1\ntester2;to test2;v.;2\n";
+    testfile.close();
+
+    // Compute result
+    std::vector<Word> words = read_words("testfile");
+    file.close();
+    remove("testfile"); // cleanup
+
+    bool c1 = words[0].french == "tester1";
+    bool c2 = words[0].english == "to test1";
+    bool c3 = words[0].info == "v.";
+    bool c4 = words[0].box == 1;
+    bool c5 = words[1].french == "tester2";
+    bool c6 = words[1].english == "to test2";
+    bool c7 = words[1].info == "v.";
+    bool c8 = words[1].box == 2;
+
+    bool res = c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8;
+
+    // Display result
+    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+  }
+  {
+    // Description
     std::string test_description = "TC_006: Test read words function correctly returns empty vector if file not found";
 
     // Compute result
@@ -232,6 +262,8 @@ void test_reverse_question()
   }
 }
 
+
+
 void test_parse_settings()
 {
   {
@@ -262,6 +294,48 @@ void test_parse_settings()
   }
 }
 
+void test_parse_to_boxes()
+{
+  {
+    // Description
+    std::string test_description = "TC_014: Test parse to box correctly returns a vector of vector of words";
+    // Init inputs
+    std::ofstream file;
+
+    file.open("testwordsfile");
+    file << "tester1;to test1;v.;1\n";
+    file << "tester2;to test2;v.;2\n";
+    file << "tester3;to test3;v.;3\n";
+    file << "tester4;to test4;v.;4\n";
+    file << "tester5;to test5;v.;5\n";
+    file.close();
+
+    // Init Expected result (if necessary)
+
+    // Compute result
+    std::vector<std::vector<Word>> words = parse_to_boxes("testwordsfile");
+
+    remove("testwordsfile"); // cleanup
+
+    bool c1 = words[0].size() == 5;
+    bool c2 = words[1].size() == 1;
+    bool c3 = words[2].size() == 1;
+    bool c4 = words[3].size() == 1;
+    bool c5 = words[4].size() == 1;
+    bool c6 = words[5].size() == 1;
+    bool c7 = words[1][0].french == "tester1";
+    bool c8 = words[2][0].french == "tester2";
+    bool c9 = words[3][0].french == "tester3";
+    bool c10 = words[4][0].french == "tester4";
+    bool c11 = words[5][0].french == "tester5";
+
+    bool res = c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8 && c9 && c10 && c11;
+
+    // Display result
+    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+  }
+}
+
 void test_utils(void)
 {
   test_split();
@@ -270,6 +344,7 @@ void test_utils(void)
   test_save_words();
   test_question();
   test_reverse_question();
+  test_parse_to_boxes();
 }
 
 void test_settings()

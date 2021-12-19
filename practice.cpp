@@ -1,10 +1,4 @@
-
-#include <iostream>
-#include <string>
-#include <vector>
-#include "utils.h"
 #include "practice.h"
-#include "settings.h"
 
 
 std::string practice(void)

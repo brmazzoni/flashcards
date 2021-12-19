@@ -6,6 +6,7 @@
 #include "utils.h"
 #include "practice.h"
 #include "settings.h"
+#include "statistics.h"
 
 
 int main()
@@ -34,8 +35,7 @@ int main()
         std::cout << "1. Practice\n";
         std::cout << "2. Settings\n";
         std::cout << "3. Statistics\n";
-        std::cout << "4. Show Words\n";
-        std::cout << "5. Backup Data\n";
+        std::cout << "4. Dictionnary\n";
         std::cout << std::endl;
         std::cout << "0. Quit\n";
         std::cout << std::endl;
@@ -57,6 +57,11 @@ int main()
         {
             selection = -1;
             msg = settings();
+        }
+        else if (selection == 3)
+        {
+            selection = -1;
+            msg = statistics();
         }
         else if (selection == -1)
         {

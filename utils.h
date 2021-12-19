@@ -6,6 +6,8 @@
 #include <vector>
 #include <fstream>
 
+
+
 // structs definitions go here (if any)
 struct Word
 {
@@ -41,6 +43,8 @@ void save_words(std::vector<Word> words, std::string filename);
 Card question(Word word, std::string mode);
 
 Card reverse_question(Card card);
+
+std::vector<std::vector<Word>> parse_to_boxes(std::string filename);
 
 
 #endif

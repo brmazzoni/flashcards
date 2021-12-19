@@ -139,3 +139,27 @@ Card reverse_question(Card card)
   return reversed_card;
 }
 
+
+std::vector<std::vector<Word>> parse_to_boxes(std::string filename)
+{
+    std::string msg = "";
+    std::vector<std::vector<Word>> words={{}, {}, {}, {}, {}, {}};
+
+    // load words from file
+    words[0] = read_words(filename);
+
+    // populate boxes
+    for (Word word : words[0])
+    {
+        if (word.box >= 1 && word.box <= 5)
+        {
+            words[word.box].push_back(word);
+        }
+        else
+        {
+            msg = "Error: box value out of range";
+        }
+    }
+    return words;
+}
+
