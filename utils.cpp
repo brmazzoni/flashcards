@@ -113,16 +113,18 @@ Card question(Word word, std::string mode)
     card.front = word.english;
     card.back = word.french;
     card.info = word.info;
+    card.attempts = 0;
   }
   else if (mode == "FRENCH_TO_ENGLISH")
   {
     card.front = word.french;
     card.back = word.english;
     card.info = word.info;
+    card.attempts = 0;
   }
   else
   {
-    card = {"--- Error ---", "--- Error ---", "--- Error ---"};
+    card = {"--- Error ---", "--- Error ---", "--- Error ---", -1};
   }
   return card;
 }

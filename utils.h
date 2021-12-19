@@ -20,6 +20,7 @@ struct Card
   std::string front;
   std::string back;
   std::string info;
+  int attempts;
 };
 
 

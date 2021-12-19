@@ -13,7 +13,7 @@ std::string practice(void)
     int random; 
     int toss;
     bool pass;
-    int choice;
+    std::string choice = "";
     std::string input;
 
     Settings settings;
@@ -71,7 +71,6 @@ std::string practice(void)
           if (settings.mode == "MIXED")
           {
             int toss = rand() % 2;
-            std::cout << toss << std::endl;
             if (toss == 0)
             {
               practice.push_back(q);
@@ -137,7 +136,22 @@ std::string practice(void)
         {
             card(practice[random].back, practice[random].info);
             std::cout << "1. I knew it --- 0. I did no know it\n";
-            std::cin >> pass;
+            while (choice != "1" && choice != "0")
+            {
+              std::cin >> choice;
+              std::cout << choice;
+              if (choice == "1")
+              {
+                pass = true;
+              }
+              else if (choice == "0")
+              {
+                pass = false;
+                practice[random].attempts++;
+              }
+            }
+            choice = "";
+
         }
         else if (input == practice[random].back)
         {
@@ -150,6 +164,7 @@ std::string practice(void)
             std::cout << "\nWrong!\nAnswer was:\n";
             card(practice[random].back, practice[random].info);
             pass = false;
+            practice[random].attempts++;
         }
         
         // Find word in master list and update box if necessary
@@ -159,8 +174,9 @@ std::string practice(void)
             if (match and pass and words[0][i].box < 5)
             {
                 words[0][i].box++;
+                practice.erase(practice.begin()+random);
             }
-            else if (match and !pass)
+            else if (match && !pass && (practice[random].attempts >= settings.retries))
             {
                 if (settings.system == "LEITNER")
                 {
@@ -170,6 +186,7 @@ std::string practice(void)
                 {
                   return "Error, unhandled system";
                 }
+                practice.erase(practice.begin()+random);
             }
             else
             {
@@ -177,7 +194,7 @@ std::string practice(void)
             }
         }
 
-        practice.erase(practice.begin()+random);
+        
         std::cout << "Press ENTER to continue";
         std::cin.get();
     }
