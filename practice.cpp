@@ -147,7 +147,7 @@ std::string practice(void)
             choice = "";
 
         }
-        else if (input == practice[random].back)
+        else if (evaluate(input,practice[random].back))
         {
             std::cout << "\nCorrect!\n";
             pass = true;
@@ -197,4 +197,17 @@ std::string practice(void)
     save_words(words[0], "words.txt");
     msg = "Saved progress!";
     return msg;
+}
+
+bool evaluate(std::string input, std::string answer)
+{
+  std::vector<std::string> answers = split(answer, "/");
+  for (std::string answer : answers)
+  {
+    if (input == answer)
+    {
+      return true;
+    }
+  }
+  return false;
 }

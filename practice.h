@@ -14,4 +14,7 @@
 
 std::string practice(void);
 
+bool evaluate(std::string input, std::string answer);
+
+
 #endif
