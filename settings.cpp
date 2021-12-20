@@ -18,8 +18,7 @@ std::string settings(void)
     {
         std::system("clear");
         // msg area
-        std::cout << std::endl;
-        std::cout << msg << std::endl << std::endl;
+        std::cout << "\n" << msg << "\n";
         // Menu
         std::cout << std::endl;
         std::cout << "Settings:\n";
@@ -84,6 +83,12 @@ std::string settings(void)
         else if (selection == 5)
         {
             selection = -1;
+            std::vector<Word> words = read_words("words.txt");
+            for (int i = 0; i < words.size(); i++)
+            {
+              words[i].box = 1;
+            }
+            save_words(words, "words.txt");
             msg =  "Resetting boxes (all words put in box 1)\n";
         }
         else if (selection == 9)

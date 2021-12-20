@@ -7,6 +7,7 @@
 #include "practice.h"
 #include "settings.h"
 #include "statistics.h"
+#include "dictionnary.h"
 
 
 int main()
@@ -62,6 +63,11 @@ int main()
         {
             selection = -1;
             msg = statistics();
+        }
+        else if (selection == 4)
+        {
+            selection = -1;
+            msg = dictionnary();
         }
         else if (selection == -1)
         {

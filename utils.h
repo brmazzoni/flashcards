@@ -46,5 +46,12 @@ Card reverse_question(Card card);
 
 std::vector<std::vector<Word>> parse_to_boxes(std::string filename);
 
+std::vector<Word> sort_words(std::vector<Word> words);
+
+std::string remove_accents(std::string str);
+
+std::string remove_accent(std::string str, std::string c, std::string r);
+
+
 
 #endif

@@ -7,7 +7,7 @@ mensuel;monthly;adj.;1
 prêter;to lend;v.;1
 emission;broadcast/tv show;n.;1
 lycée;high school;n.m.;1
-évitement;avoidance;tbd;1
+évitement;avoidance;n.m.;1
 sueur;sweat;n.f.;1
 peur;fear;n.f.;1
 pourrir;to rot;v.;1
@@ -21,7 +21,7 @@ trembler;to shake;v.;1
 tremblement de terre;earthquake;n.m.;1
 moitié;half;n.f.;1
 dépense;expense;n.f.;1
-dehors;outside;tbd;1
+dehors;outside;adv.;1
 araignée;spider;n.f.;1
 malsain;unhealthy;adj.;1
 casser;to break;v.;1

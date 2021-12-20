@@ -163,3 +163,45 @@ std::vector<std::vector<Word>> parse_to_boxes(std::string filename)
     return words;
 }
 
+std::vector<Word> sort_words(std::vector<Word> words)
+{
+    // bubble sorting
+    bool sorted = false;
+    while (sorted == false)
+    {
+        sorted = true;
+        for (int i=0; i < words.size() - 1; i++)
+        {
+            if (remove_accents(words[i].french).compare(remove_accents(words[i+1].french)) >= 0)
+            {
+                Word temp = words[i];
+                words[i] = words[i+1];
+                words[i+1] = temp;
+                sorted = false;
+            }
+        }
+    }
+    return words;
+}
+
+std::string remove_accents(std::string str)
+{
+    str = remove_accent(str, "é", "e");
+    str = remove_accent(str, "è", "e");
+    str = remove_accent(str, "ê", "e");
+    str = remove_accent(str, "à", "a");
+    str = remove_accent(str, "ù", "u");
+    str = remove_accent(str, "î", "i");
+    return str;
+}
+
+std::string remove_accent(std::string str, std::string c, std::string r)
+{
+    size_t pos;
+    while((pos = str.find(c)) != std::string::npos)
+    {
+        str.replace(pos, 2, r);
+    }
+    return str;
+}
+
