@@ -6,7 +6,30 @@
 #include "settings.h"
 #include "settings.cpp"
 
-void test_split()
+struct TestMetrics
+{
+  int executed;
+  int pass;
+  int fail;
+};
+
+void assrt(bool res, std::string description, TestMetrics &metrics)
+{
+    metrics.executed++;
+    if (res)
+    {
+      std::cout << "PASS " << description << "\n";
+      metrics.pass++;
+    }
+    else
+    {
+      std::cout << "FAIL " << description << "\n";
+      metrics.fail++;
+    }
+}
+
+
+void test_split(TestMetrics &metrics)
 {
   {
     // Description
@@ -22,7 +45,7 @@ void test_split()
     bool res = c1 && c2 && c3;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
   {
     // Description
@@ -38,7 +61,7 @@ void test_split()
     bool res = c1 && c2 && c3;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
   {
     // Description
@@ -54,32 +77,33 @@ void test_split()
     bool res = c1 && c2 && c3;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
 }
 
-void test_read_word()
+void test_read_word(TestMetrics &metrics)
 {
   {
     // Description
     std::string test_description = "TC_004: Test read word function";
     // Init inputs
-    std::string line = "tester;to test;v.; 3";
+    std::string line = "1;tester;to test;v.; 3";
     // Init Expected result (if necessary)
 
     // Compute result
+    bool c0 = read_word(line).id == 1;
     bool c1 = read_word(line).french == "tester";
     bool c2 = read_word(line).english == "to test";
     bool c3 = read_word(line).info == "v.";
     bool c4 = read_word(line).box == 3;
-    bool res = c1 && c2 && c3 && c4;
+    bool res = c0 && c1 && c2 && c3 && c4;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
 }
 
-void test_read_words()
+void test_read_words(TestMetrics &metrics)
 {
   {
     // Description
@@ -89,7 +113,7 @@ void test_read_words()
     std::ifstream file;
 
     testfile.open("testfile");
-    testfile << "tester1;to test1;v.;1\ntester2;to test2;v.;2";
+    testfile << "1;tester1;to test1;v.;1\n2;tester2;to test2;v.;2";
     testfile.close();
 
     // Compute result
@@ -97,19 +121,21 @@ void test_read_words()
     file.close();
     remove("testfile"); // cleanup
 
+    bool c0 = words[0].id == 1;
     bool c1 = words[0].french == "tester1";
     bool c2 = words[0].english == "to test1";
     bool c3 = words[0].info == "v.";
     bool c4 = words[0].box == 1;
-    bool c5 = words[1].french == "tester2";
-    bool c6 = words[1].english == "to test2";
-    bool c7 = words[1].info == "v.";
-    bool c8 = words[1].box == 2;
+    bool c5 = words[1].id == 2;
+    bool c6 = words[1].french == "tester2";
+    bool c7 = words[1].english == "to test2";
+    bool c8 = words[1].info == "v.";
+    bool c9 = words[1].box == 2;
 
-    bool res = c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8;
+    bool res = c0 && c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8 && c9;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
   {
     // Description
@@ -119,7 +145,7 @@ void test_read_words()
     std::ifstream file;
 
     testfile.open("testfile");
-    testfile << "tester1;to test1;v.;1\ntester2;to test2;v.;2\n";
+    testfile << "1;tester1;to test1;v.;1\n2;tester2;to test2;v.;2\n";
     testfile.close();
 
     // Compute result
@@ -127,19 +153,21 @@ void test_read_words()
     file.close();
     remove("testfile"); // cleanup
 
+    bool c0 = words[0].id == 1;
     bool c1 = words[0].french == "tester1";
     bool c2 = words[0].english == "to test1";
     bool c3 = words[0].info == "v.";
     bool c4 = words[0].box == 1;
-    bool c5 = words[1].french == "tester2";
-    bool c6 = words[1].english == "to test2";
-    bool c7 = words[1].info == "v.";
-    bool c8 = words[1].box == 2;
+    bool c5 = words[1].id == 2;
+    bool c6 = words[1].french == "tester2";
+    bool c7 = words[1].english == "to test2";
+    bool c8 = words[1].info == "v.";
+    bool c9 = words[1].box == 2;
 
-    bool res = c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8;
+    bool res = c0 && c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8 && c9;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
   {
     // Description
@@ -151,11 +179,11 @@ void test_read_words()
     bool res = words.size() == 0;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
 }
 
-void test_save_words()
+void test_save_words(TestMetrics &metrics)
 {
   {
     // Description
@@ -164,8 +192,8 @@ void test_save_words()
     // Init inputs
     std::ofstream file;
     std::ifstream testfile;
-    Word word1 = {"tester1", "to test1", "v.", 1};
-    Word word2 = {"tester2", "to test2", "v.", 2};
+    Word word1 = {1, "tester1", "to test1", "v.", 1};
+    Word word2 = {2, "tester2", "to test2", "v.", 2};
     std::vector<Word> words = {word1, word2};
 
     // Compute result
@@ -180,20 +208,20 @@ void test_save_words()
 
     remove("testfile"); // cleanup
 
-    bool res = content == "tester1;to test1;v.;1\ntester2;to test2;v.;2\n";
+    bool res = content == "1;tester1;to test1;v.;1\n2;tester2;to test2;v.;2\n";
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
 }
 
-void test_question()
+void test_question(TestMetrics &metrics)
 {
   {
     // Description
     std::string test_description = "TC_009: Test question returns proper question in ENGLISH_TO_FRENCH mode";
     // Init inputs
-    Word word = {"tester", "to test", "v.", 1};
+    Word word = {1, "tester", "to test", "v.", 1};
 
     // Compute result
     Card q = question(word, "ENGLISH_TO_FRENCH");
@@ -204,13 +232,13 @@ void test_question()
     bool res = c1 && c2;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
   {
     // Description
     std::string test_description = "TC_010: Test question returns proper question in FRENCH_TO_ENGLISH mode";
     // Init inputs
-    Word word = {"tester", "to test", "v.", 1};
+    Word word = {1, "tester", "to test", "v.", 1};
 
     // Compute result
     Card q = question(word, "FRENCH_TO_ENGLISH");
@@ -221,13 +249,13 @@ void test_question()
     bool res = c1 && c2;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
   {
     // Description
     std::string test_description = "TC_011: Test question returns proper question in MIXED mode";
     // Init inputs
-    Word word = {"tester", "to test", "v.", 1};
+    Word word = {1, "tester", "to test", "v.", 1};
 
     // Compute result
     Card q = question(word, "MIXED");
@@ -238,17 +266,17 @@ void test_question()
     bool res = c1 && c2;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
 }
 
-void test_reverse_question()
+void test_reverse_question(TestMetrics &metrics)
 {
   {
     // Description
     std::string test_description = "TC_012: Test reverse_question properly reverses a card";
-    // Init inputs
-    Card card = {"1", "2", "info"};
+    // Init input
+    Card card = {1, "1", "2", "info"};
 
     // Compute result
     Card reversed = reverse_question(card);
@@ -258,13 +286,13 @@ void test_reverse_question()
     bool res = c1 && c2;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
 }
 
 
 
-void test_parse_settings()
+void test_parse_settings(TestMetrics &metrics)
 {
   {
     // Description
@@ -290,11 +318,11 @@ void test_parse_settings()
     bool res = c1 && c2 && c3 && c4;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
 }
 
-void test_parse_to_boxes()
+void test_parse_to_boxes(TestMetrics &metrics)
 {
   {
     // Description
@@ -303,11 +331,11 @@ void test_parse_to_boxes()
     std::ofstream file;
 
     file.open("testwordsfile");
-    file << "tester1;to test1;v.;1\n";
-    file << "tester2;to test2;v.;2\n";
-    file << "tester3;to test3;v.;3\n";
-    file << "tester4;to test4;v.;4\n";
-    file << "tester5;to test5;v.;5\n";
+    file << "1;tester1;to test1;v.;1\n";
+    file << "2;tester2;to test2;v.;2\n";
+    file << "3;tester3;to test3;v.;3\n";
+    file << "4;tester4;to test4;v.;4\n";
+    file << "5;tester5;to test5;v.;5\n";
     file.close();
 
     // Init Expected result (if necessary)
@@ -332,36 +360,45 @@ void test_parse_to_boxes()
     bool res = c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8 && c9 && c10 && c11;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
 }
 
-void test_utils(void)
+void test_utils(TestMetrics &metrics)
 {
-  test_split();
-  test_read_word();
-  test_read_words();
-  test_save_words();
-  test_question();
-  test_reverse_question();
-  test_parse_to_boxes();
+  test_split(metrics);
+  test_read_word(metrics);
+  test_read_words(metrics);
+  test_save_words(metrics);
+  test_question(metrics);
+  test_reverse_question(metrics);
+  test_parse_to_boxes(metrics);
 }
 
-void test_settings()
+void test_settings(TestMetrics &metrics)
 {
-  test_parse_settings();
+  test_parse_settings(metrics);
 }
 
 int main(void)
 {
-  test_utils();
-  test_settings();
+  TestMetrics metrics;
+  metrics = {0, 0, 0};
+
+  test_utils(metrics);
+  test_settings(metrics);
+
+  std::cout << "\n\nTest Run Complete. ";
+  std::cout << "Executed: " << metrics.executed << " ";
+  std::cout << "Pass: " << metrics.pass << " ";
+  std::cout << "Fail: " << metrics.fail << ".\n\n";
 }
 
 
 // TEMPLATES
+/*
 
-void test_template()
+void test_template(metrics)
 {
   {
     // Description
@@ -374,6 +411,8 @@ void test_template()
     bool res = false;
 
     // Display result
-    std::cout << (res ? "PASS" : "FAIL") << " " << test_description << "\n";
+    assrt(res, test_description, metrics);
   }
 }
+
+*/

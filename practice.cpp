@@ -1,4 +1,5 @@
 #include "practice.h"
+#include "statistics.h"
 
 
 std::string practice(void)
@@ -43,11 +44,7 @@ std::string practice(void)
     std::cout << std::endl;
     std::cout << std::endl;
     std::cout << std::endl;
-    std::cout << "Total number of words: " << words[0].size() << std::endl;
-    for (int i=1; i<=5; i++)
-      {
-        std::cout << "Words in Box " << i << ": " << words[i].size() << std::endl;
-      }
+    statistics();
     std::cout << std::endl;
     print_settings(settings);
 
@@ -121,6 +118,7 @@ std::string practice(void)
     while (practice.size() > 0)
     {
         std::system("clear");
+        print(practice);
         random = rand() % practice.size();
         card(practice[random].front);
         std::cout << "Guess or type \"?\" to show the answer:\n";
@@ -164,7 +162,7 @@ std::string practice(void)
         // Find word in master list and update box if necessary
         for (int i=0; i <= words[0].size(); i++)
         {
-            bool match = question(words[0][i], settings.mode).front == practice[random].front;
+            bool match = words[0][i].id == practice[random].id;
             if (match and pass and words[0][i].box < 5)
             {
                 words[0][i].box++;

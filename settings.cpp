@@ -64,13 +64,11 @@ std::string settings(void)
         }
         else if (selection == 2)
         {
-            std::cout << "Available modes:\n\n";
-            std::cout << "1. FRENCH_TO_ENGLISH\n";
-            std::cout << "2. ENGLISH_TO_FRENCH\n";
-            std::cout << "3. MIXED (randomly selects French or English question)\n";
-            std::cout << "\nNew Mode: ";
-            std::cin >> settings.mode;
-
+            std::string mode = select_mode();
+            if (mode != "")
+            {
+              settings.mode = mode;
+            }
             selection = -1;
         }
         else if (selection == 3)
@@ -167,4 +165,39 @@ void print_settings(Settings settings)
   std::cout << "Spaced Repetition System: " << settings.system << std::endl;
   std::cout << "Retries: " << settings.retries << std::endl;
   std::cout << std::endl;
+}
+
+std::string select_mode(void)
+{
+  std::string input = "";
+
+  std::cout << "Available modes:\n\n";
+  std::cout << "1. FRENCH_TO_ENGLISH\n";
+  std::cout << "2. ENGLISH_TO_FRENCH\n";
+  std::cout << "3. MIXED (randomly selects French or English question)\n";
+  std::cout << "\n0. Cancel\n";
+  std::cout << "\nSelect New Mode: ";
+
+  while (input == "")
+  {
+    std::cin >> input;
+    if (input == "0")
+    {
+      return "";
+    }
+    else if (input == "1")
+    {
+      return "FRENCH_TO_ENGLISH";
+    }
+    else if (input == "2")
+    {
+      return "ENGLISH_TO_FRENCH";
+    }
+    else if (input == "3")
+    {
+      return "MIXED";
+    }
+    input = "";
+  }
+  return "Error";
 }

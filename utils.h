@@ -11,6 +11,7 @@
 // structs definitions go here (if any)
 struct Word
 {
+    int id;
     std::string french;
     std::string english;
     std::string info;
@@ -19,6 +20,7 @@ struct Word
 
 struct Card
 {
+  int id;
   std::string front;
   std::string back;
   std::string info;
@@ -28,6 +30,8 @@ struct Card
 
 void print(Word word);
 void print(std::vector<Word> words);
+void print(std::vector<Card> cards);
+
 
 std::vector<std::string> split(std::string line, std::string delimiter);
 

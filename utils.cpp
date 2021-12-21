@@ -13,6 +13,14 @@ void print(std::vector<Word> words)
     }
 }
 
+void print(std::vector<Card> cards)
+{
+    for (Card card : cards)
+    {
+        std::cout << card.front << "\n";
+    }
+}
+
 void card(std::string text)
 {
     std::cout << "\n\n";
@@ -58,7 +66,7 @@ Word read_word(std::string line)
     std::vector<std::string> buffer;
     buffer = split(line, DELIMITER);
 
-    return {buffer[0], buffer[1], buffer[2], std::stoi(buffer[3])};
+    return {std::stoi(buffer[0]), buffer[1], buffer[2], buffer[3], std::stoi(buffer[4])};
 }
 
 std::vector<Word> read_words(std::string filename)
@@ -95,7 +103,7 @@ void save_words(std::vector<Word> words, std::string filename)
     {
         for (Word word : words)
         {
-            file << word.french << ';' << word.english << ';' << word.info << ';' << word.box << std::endl;
+            file << word.id << ';' << word.french << ';' << word.english << ';' << word.info << ';' << word.box << std::endl;
         }
     }
     else
@@ -107,26 +115,26 @@ void save_words(std::vector<Word> words, std::string filename)
 
 Card question(Word word, std::string mode)
 {
-  Card card;
-  if (mode == "ENGLISH_TO_FRENCH" || mode == "MIXED")
-  {
-    card.front = word.english;
-    card.back = word.french;
+    Card card;
+    card.id = word.id;
     card.info = word.info;
     card.attempts = 0;
-  }
-  else if (mode == "FRENCH_TO_ENGLISH")
-  {
+    if (mode == "ENGLISH_TO_FRENCH" || mode == "MIXED")
+    {
+        card.front = word.english;
+        card.back = word.french;
+        
+    }
+    else if (mode == "FRENCH_TO_ENGLISH")
+    {
     card.front = word.french;
     card.back = word.english;
-    card.info = word.info;
-    card.attempts = 0;
-  }
-  else
-  {
-    card = {"--- Error ---", "--- Error ---", "--- Error ---", -1};
-  }
-  return card;
+    }
+    else
+    {
+        card = {-1, "--- Error ---", "--- Error ---", "--- Error ---", -1};
+    }
+    return card;
 }
 
 Card reverse_question(Card card)
