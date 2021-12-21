@@ -56,6 +56,8 @@ std::string remove_accents(std::string str);
 
 std::string remove_accent(std::string str, std::string c, std::string r);
 
+std::string debug();
+
 
 
 #endif

@@ -1,7 +1,7 @@
 #include "statistics.h"
 #include "utils.h"
 
-std::string statistics(void)
+std::string statistics(bool pausing = false)
 {
     std::string msg = "";
     std::string input = "";
@@ -18,8 +18,15 @@ std::string statistics(void)
         std::cout << "Words in Box " << i << ": " << words[i].size() << std::endl;
       }
     
-    std::cout << "\nPress Enter to retun to main menu";
-    std::cin.get();
+    if (pausing)
+    {
+      std::cout << "\nPress Enter to retun to main menu";
+      std::cin.get();
+    }
+    else
+    {
+      // do nothing as designed
+    }
 
     return msg;
 }

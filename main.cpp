@@ -13,6 +13,7 @@
 int main()
 {
     const std::string VERSION = "0.1";
+    const bool PAUSING = true;
     std::string msg = "";
     int selection;
     
@@ -37,6 +38,7 @@ int main()
         std::cout << "2. Settings\n";
         std::cout << "3. Statistics\n";
         std::cout << "4. Dictionnary\n";
+        std::cout << "\n5. Debug\n";
         std::cout << std::endl;
         std::cout << "0. Quit\n";
         std::cout << std::endl;
@@ -62,12 +64,17 @@ int main()
         else if (selection == 3)
         {
             selection = -1;
-            msg = statistics();
+            msg = statistics(PAUSING);
         }
         else if (selection == 4)
         {
             selection = -1;
             msg = dictionnary();
+        }
+        else if (selection == 5)
+        {
+            selection = -1;
+            msg = debug();
         }
         else if (selection == -1)
         {

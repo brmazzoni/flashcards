@@ -2,7 +2,7 @@
 
 void print(Word word)
 {
-    std::cout << word.french << "\t" << word.english << "\t" << word.box << std::endl;
+    std::cout << word.id << "\t" << word.french << "\t" << word.english << "\t" << word.box << std::endl;
 }
 
 void print(std::vector<Word> words)
@@ -17,7 +17,7 @@ void print(std::vector<Card> cards)
 {
     for (Card card : cards)
     {
-        std::cout << card.front << "\n";
+        std::cout << card.id << "\t" << card.front << "\n";
     }
 }
 
@@ -143,6 +143,7 @@ Card reverse_question(Card card)
   reversed_card.front = card.back;
   reversed_card.back = card.front;
   reversed_card.info = card.info;
+  reversed_card.id = card.id;
 
   return reversed_card;
 }
@@ -213,3 +214,15 @@ std::string remove_accent(std::string str, std::string c, std::string r)
     return str;
 }
 
+std::string debug()
+{
+    std::string msg = "";
+    
+    std::vector<Word> words;
+    std::vector<Card> cards = {};
+    words = read_words("words.txt");
+   
+
+    std::cin.get();
+    return msg;
+}

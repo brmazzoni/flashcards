@@ -3,6 +3,6 @@
 
 #include <iostream>
 
-std::string statistics(void);
+std::string statistics(bool pausing);
 
 #endif

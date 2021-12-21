@@ -44,7 +44,7 @@ std::string practice(void)
     std::cout << std::endl;
     std::cout << std::endl;
     std::cout << std::endl;
-    statistics();
+    statistics(false);
     std::cout << std::endl;
     print_settings(settings);
 
@@ -118,7 +118,7 @@ std::string practice(void)
     while (practice.size() > 0)
     {
         std::system("clear");
-        print(practice);
+        pass = false;
         random = rand() % practice.size();
         card(practice[random].front);
         std::cout << "Guess or type \"?\" to show the answer:\n";
@@ -131,7 +131,6 @@ std::string practice(void)
             while (choice != "1" && choice != "0")
             {
               std::cin >> choice;
-              std::cout << choice;
               if (choice == "1")
               {
                 pass = true;
@@ -163,22 +162,36 @@ std::string practice(void)
         for (int i=0; i <= words[0].size(); i++)
         {
             bool match = words[0][i].id == practice[random].id;
-            if (match and pass and words[0][i].box < 5)
+            if (!match)
+            {
+              continue;
+            }
+            
+
+            if (pass && words[0][i].box < 5)
             {
                 words[0][i].box++;
                 practice.erase(practice.begin()+random);
+                break;
             }
-            else if (match && !pass && (practice[random].attempts >= settings.retries))
+            else if (pass && words[0][i].box >= 5)
+            {
+                practice.erase(practice.begin()+random);
+                break;
+            }
+            else if (!pass && (practice[random].attempts >= settings.retries))
             {
                 if (settings.system == "LEITNER")
                 {
                   words[0][i].box = 1;
+                  practice.erase(practice.begin()+random);
+                  break;
+
                 }
                 else
                 {
-                  return "Error, unhandled system";
+                  std::cout << "Error, unhandled system\n";
                 }
-                practice.erase(practice.begin()+random);
             }
             else
             {
