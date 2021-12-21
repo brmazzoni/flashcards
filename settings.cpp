@@ -38,7 +38,6 @@ std::string settings(void)
         
         if (selection == 0)
         {
-            // TODO: Write settings to file
             std::ofstream file;
             file.open("settings");
             if (file.is_open())
@@ -73,9 +72,12 @@ std::string settings(void)
         }
         else if (selection == 3)
         {
+            std::string system = select_system();
+            if (system != "")
+            {
+              settings.system = system;
+            }
             selection = -1;
-            std::cout << "New System: ";
-            std::cin >> settings.system;
         }
         else if (selection == 4)
         {
@@ -196,6 +198,36 @@ std::string select_mode(void)
     else if (input == "3")
     {
       return "MIXED";
+    }
+    input = "";
+  }
+  return "Error";
+}
+
+std::string select_system(void)
+{
+  std::string input = "";
+
+  std::cout << "Available systems:\n\n";
+  std::cout << "1. LEITNER\n";
+  std::cout << "2. LIGHT (Coming Soon)\n";
+  std::cout << "\n0. Cancel\n";
+  std::cout << "\nSelect New System: ";
+
+  while (input == "")
+  {
+    std::cin >> input;
+    if (input == "0")
+    {
+      return "";
+    }
+    else if (input == "1")
+    {
+      return "LEITNER";
+    }
+    else if (input == "2")
+    {
+      return "LEITNER";
     }
     input = "";
   }

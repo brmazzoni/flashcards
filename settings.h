@@ -20,6 +20,7 @@ Settings parse_settings(std::string settings);
 void print_settings(Settings settings);
 
 std::string select_mode(void);
+std::string select_system(void);
 
 
 #endif
