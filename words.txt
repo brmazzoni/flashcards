@@ -82,5 +82,3 @@
 82;écran;screen;n.m.;1
 83;gaspiller;to waste;v.;1
 84;arnaque;scam;n.f.;1
-
-
