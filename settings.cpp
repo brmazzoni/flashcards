@@ -64,9 +64,14 @@ std::string settings(void)
         }
         else if (selection == 2)
         {
-            selection = -1;
-            std::cout << "New Mode: ";
+            std::cout << "Available modes:\n\n";
+            std::cout << "1. FRENCH_TO_ENGLISH\n";
+            std::cout << "2. ENGLISH_TO_FRENCH\n";
+            std::cout << "3. MIXED (randomly selects French or English question)\n";
+            std::cout << "\nNew Mode: ";
             std::cin >> settings.mode;
+
+            selection = -1;
         }
         else if (selection == 3)
         {

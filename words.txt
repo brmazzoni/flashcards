@@ -8,7 +8,7 @@ prêter;to lend;v.;1
 emission;broadcast/tv show;n.;1
 lycée;high school;n.m.;1
 évitement;avoidance;n.m.;1
-sueur;sweat;n.f.;1
+sueur/transpiration;sweat;n.f.;1
 peur;fear;n.f.;1
 pourrir;to rot;v.;1
 séduire;to seduce;v.;1
@@ -16,7 +16,7 @@ charmer;to charm;v.;1
 attirer;to attract;v.;1
 horreur;horror;n.f.;1
 cata;short for catastrophe;n.f.;1
-transpirer;to sweat;n.f.;1
+transpirer;to sweat;v.;1
 trembler;to shake;v.;1
 tremblement de terre;earthquake;n.m.;1
 moitié;half;n.f.;1
