@@ -28,8 +28,59 @@
 28;trahir;to betray;v.;1
 29;convaincre;to convince;v.;1
 30;pousser;to push;v.;1
-31;arnaquer;to hustle/to con;v.;1
+31;arnaquer;to hustle/to con/to scam;v.;1
 32;consommation;consumption;n.f.;1
 33;intérêt;interest;n.m.;1
 34;rhume;a cold;n.m.;1
 35;forme;fitness;n.f.;1
+36;depuis;since;adv./prép.;1
+37;durée;duration;n.f.;1
+38;enseigner;to teach;v.;1
+39;domaine;domain/field;n.m.;1
+40;entreprise;company;n.f.;1
+41;emménager;to move in;v.;1
+42;déménager;to move out/to move house/to move appartment;v.;1
+43;spectacle;show;n.m.;1
+44;récompense;reward;n.f.;1
+45;obtenir;to obtain;v.;1
+46;diffuser;to broadcast;v.;1
+47;sucreries;sweets/candies;n.f.;1
+48;gourmand;gourmet/foodie/overeater/greedy;adj.;1
+49;sucré;sweet;adj.;1
+50;appartenir;to belong;v.;1
+51;journal;newspaper;n.m.;1
+52;généreux;generous;adj.;1
+53;rapidement;quickly;adv.;1
+54;efficacement;efficiently;adv.;1
+55;efficace;efficient;adj.;1
+56;aveugle;blind;n.m./adj.;1
+57;aveugler;to blind;v.;1
+58;affiche;poster;n.f.;1
+59;autant;as much;adv.compar.;1
+60;auditeur/auditrice;listener;n.m./n.f.;1
+61;fauteuil;armchair;n.m.;1
+62;animateur tv;tv host;n.m.;1
+63;actualités/information/nouvelles;news;n.f.;1
+64;oncle;uncle;n.m.;1
+65;tante;aunt;n.f.;1
+66;fixer;to set;v.;1
+67;suivre;to follow;v.;1
+68;bibliothèque;library/book shelves;n.f.;1
+69;librairaie;book store;n.f.;1
+70;se souvenir/se rappeler/retenir;to remember;v.;1
+71;contenu;content;n.m.;1
+72;commentaire;comment;n.m.;1
+73;montrer;to show;v.;1
+74;naviguer;to browse;v.;1
+75;courriel;e-mail;n.m.;1
+76;effacer;to erase;v.;1
+77;tromper;to fool;v.;1
+78;confiance;trust;n.f.;1
+79;faux/fausse;fake;n.m./n.f.;1
+80;déconnecter;to disconnect;v.;1
+81;empêcher;to prevent;v.;1
+82;écran;screen;n.m.;1
+83;gaspiller;to waste;v.;1
+84;arnaque;scam;n.f.;1
+
+
