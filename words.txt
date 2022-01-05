@@ -1,11 +1,11 @@
-1;perdu;lost;pp.;1
+1;perdu;lost;pp.;2
 2;perdre;to loose;v.;1
 3;étranger;stranger;n.m.;1
 4;quotidien;daily;adj.;1
-5;hebdomadaire;weekly;adj.;1
+5;hebdomadaire;weekly;adj.;2
 6;mensuel;monthly;adj.;1
 7;prêter;to lend;v.;1
-8;émission;broadcast/tv show;n.;1
+8;émission;broadcast/tv show;n.;2
 9;lycée;high school;n.m.;1
 10;évitement;avoidance;n.m.;1
 11;sueur/transpiration;sweat;n.f.;1
@@ -24,7 +24,7 @@
 24;dehors;outside;adv.;1
 25;araignée;spider;n.f.;1
 26;malsain;unhealthy;adj.;1
-27;casser;to break;v.;1
+27;casser;to break;v.;4
 28;trahir;to betray;v.;1
 29;convaincre;to convince;v.;1
 30;pousser;to push;v.;1
@@ -34,8 +34,8 @@
 34;rhume;a cold;n.m.;1
 35;forme;fitness;n.f.;1
 36;depuis;since;adv./prép.;1
-37;durée;duration;n.f.;1
-38;enseigner;to teach;v.;1
+37;durée;duration;n.f.;2
+38;enseigner;to teach;v.;2
 39;domaine;domain/field;n.m.;1
 40;entreprise;company;n.f.;1
 41;emménager;to move in;v.;1
@@ -48,9 +48,9 @@
 48;gourmand;gourmet/foodie/overeater/greedy;adj.;1
 49;sucré;sweet;adj.;1
 50;appartenir;to belong;v.;1
-51;journal;newspaper;n.m.;1
-52;généreux;generous;adj.;1
-53;rapidement;quickly;adv.;1
+51;journal;newspaper;n.m.;4
+52;généreux;generous;adj.;5
+53;rapidement;quickly;adv.;2
 54;efficacement;efficiently;adv.;1
 55;efficace;efficient;adj.;1
 56;aveugle;blind;n.m./adj.;1
@@ -59,26 +59,26 @@
 59;autant;as much;adv.compar.;1
 60;auditeur/auditrice;listener;n.m./n.f.;1
 61;fauteuil;armchair;n.m.;1
-62;animateur tv;tv host;n.m.;1
+62;animateur tv;tv host;n.m.;2
 63;actualités/information/nouvelles;news;n.f.;1
 64;oncle;uncle;n.m.;1
 65;tante;aunt;n.f.;1
 66;fixer;to set;v.;1
-67;suivre;to follow;v.;1
+67;suivre;to follow;v.;4
 68;bibliothèque;library/book shelves;n.f.;1
 69;librairaie;book store;n.f.;1
 70;se souvenir/se rappeler/retenir;to remember;v.;1
 71;contenu;content;n.m.;1
 72;commentaire;comment;n.m.;1
-73;montrer;to show;v.;1
+73;montrer;to show;v.;2
 74;naviguer;to browse;v.;1
 75;courriel;e-mail;n.m.;1
 76;effacer;to erase;v.;1
-77;tromper;to fool;v.;1
+77;tromper;to fool;v.;2
 78;confiance;trust;n.f.;1
 79;faux/fausse;fake;n.m./n.f.;1
 80;déconnecter;to disconnect;v.;1
-81;empêcher;to prevent;v.;1
+81;empêcher;to prevent;v.;2
 82;écran;screen;n.m.;1
 83;gaspiller;to waste;v.;1
-84;arnaque;scam;n.f.;1
+84;arnaque;scam;n.f.;2
